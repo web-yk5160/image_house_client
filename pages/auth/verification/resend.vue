@@ -2,7 +2,7 @@
     <section class="authentication">
         <div class="auth-body">
             <h1 class="text-uppercase fw-500 mb-4 text-center font-22">
-                ログイン
+                確認メールの再送信
             </h1>
             <form class="auth-form" @submit.prevent="submit">
                 <alert-error v-if="form.errors.has('message')" :form="form">
@@ -11,6 +11,9 @@
                         >Resend verification email</nuxt-link
                     >
                 </alert-error>
+                <alert-success :form="form">
+                    登録したメールアドレスに確認メールを送りました
+                </alert-success>
                 <div class="form-group">
                     <input
                         type="text"
@@ -22,20 +25,6 @@
                     />
                     <has-error :form="form" field="email"></has-error>
                 </div>
-                <div class="form-group">
-                    <input
-                        type="password"
-                        name="password"
-                        v-model="form.password"
-                        class="form-control form-control-lg font-14 fw-300"
-                        :class="{'is-invalid' : form.errors.has('password')}"
-                        placeholder="Password"
-                    />
-                    <has-error :form="form" field="password"></has-error>
-                </div>
-                <div class="mt-4 mb-4 clearfix">
-                    <nuxt-link to="/password/email" class="forgot-pass color-blue font-14 fw-400"> Forgot password? </nuxt-link>
-                </div>
                 <div class="text-right">
                     <button type="submit"
                             :disabled="form.busy"
@@ -43,13 +32,9 @@
                         <span v-if="form.busy">
                             <i class="fas fa-spinner fa-spin"></i>
                         </span>
-                        Login
+                        Resend
                     </button>
                 </div>
-                <p class="font-14 fw-400 text-center mt-4">
-                    Don't have an account yet?
-                    <nuxt-link :to="{name: 'register'}" class="color-blue"> Create an account</nuxt-link>
-                </p>
             </form>
         </div>
     </section>
@@ -60,28 +45,19 @@ export default {
     data(){
         return {
             form: this.$vform({
-            email: '',
-            password: ''
+            email: ''
             })
-        }
-    },
-    methods: {
+        };
+        },
+
+        methods: {
         submit() {
-            this.$auth
-                .loginWith('local', {
-                    data: this.form
-                })
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(e => {
-                    this.form.errors.set(e.response.data.errors);
-                });
+            this.form.post(`/verification/resend`)
+            .then(res => this.form.resent())
+            .catch(e => console.log(e));
         }
     }
 }
-
-
 </script>
 
 <style>
