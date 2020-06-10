@@ -71,12 +71,12 @@
                     <span v-if="form.busy">
                         <i class="fas fa-spinner fa-spin"></i>
                     </span>
-                    Register
+                    登録
                 </button>
             </div>
             <p class="font-14 fw-400 text-center mt-4">
-                Already have an account?
-                <nuxt-link :to="{name: 'login'}" class="color-blue" href="#"> Login</nuxt-link>
+                既にアカウントをお持ちの方
+                <nuxt-link :to="{name: 'login'}" class="color-blue" href="#"> ログイン</nuxt-link>
             </p>
         </form>
     </div>
@@ -85,6 +85,7 @@
 
 <script>
 export default {
+    middleware: ['guest'],
     data(){
         return {
             form: this.$vform({
