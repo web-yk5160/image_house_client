@@ -13,7 +13,7 @@
                         v-model="form.email"
                         class="form-control form-control-lg font-14 fw-300"
                         :class="{'is-invalid' : form.errors.has('email')}"
-                        placeholder="Email"
+                        placeholder="メールアドレス"
                     />
                     <has-error :form="form" field="email"></has-error>
                 </div>

@@ -8,7 +8,7 @@
                 <alert-error v-if="form.errors.has('message')" :form="form">
                     {{ form.errors.get('message') }}
                     <nuxt-link :to="{ name: 'verification.resend' }"
-                        >Resend verification email</nuxt-link
+                        >確認メールを再送する</nuxt-link
                     >
                 </alert-error>
                 <alert-success :form="form">
@@ -21,7 +21,7 @@
                         v-model="form.email"
                         class="form-control form-control-lg font-14 fw-300"
                         :class="{'is-invalid' : form.errors.has('email')}"
-                        placeholder="Email"
+                        placeholder="メールアドレス"
                     />
                     <has-error :form="form" field="email"></has-error>
                 </div>
@@ -32,7 +32,7 @@
                         <span v-if="form.busy">
                             <i class="fas fa-spinner fa-spin"></i>
                         </span>
-                        Resend
+                        再送
                     </button>
                 </div>
             </form>

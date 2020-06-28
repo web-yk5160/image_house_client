@@ -2,14 +2,14 @@
   <section class="authentication">
     <div class="auth-body">
       <h1 class="text-uppercase fw-500 mb-4 text-center font-22">
-        Email Verification
+        メール認証
       </h1>
       <form class="auth-form">
         <div class="form-group" v-if="success">
           <div class="alert alert-success">
             {{ status }}
           </div>
-          <nuxt-link to="/login">Proceed to Login</nuxt-link>
+          <nuxt-link to="/login">ログインする</nuxt-link>
         </div>
         <div class="form-group" v-else>
           <div class="alert alert-danger">

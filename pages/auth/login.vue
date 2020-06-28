@@ -8,7 +8,7 @@
                 <alert-error v-if="form.errors.has('message')" :form="form">
                     {{ form.errors.get('message') }}
                     <nuxt-link :to="{ name: 'verification.resend' }"
-                        >Resend verification email</nuxt-link
+                        >確認メールを再送する</nuxt-link
                     >
                 </alert-error>
                 <div class="form-group">
@@ -16,7 +16,7 @@
                         :form="form"
                         field="email"
                         v-model="form.email"
-                        placeholder="Email"
+                        placeholder="メールアドレス"
                         ></base-input>
                 </div>
                 <div class="form-group">
@@ -25,7 +25,7 @@
                         field="password"
                         inputType="password"
                         v-model="form.password"
-                        placeholder="Password"
+                        placeholder="パスワード"
                         ></base-input>
                 </div>
                 <div class="mt-4 mb-4 clearfix">

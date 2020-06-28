@@ -19,7 +19,7 @@
                         v-model="form.email"
                         class="form-control form-control-lg font-14 fw-300"
                         :class="{'is-invalid' : form.errors.has('email')}"
-                        placeholder="Email"
+                        placeholder="メールアドレス"
                     />
                     <has-error :form="form" field="email"></has-error>
                 </div>
@@ -31,7 +31,7 @@
                         v-model="form.password"
                         class="form-control form-control-lg font-14 fw-300"
                         :class="{'is-invalid' : form.errors.has('password')}"
-                        placeholder="New Password"
+                        placeholder="新しいパスワード"
                     />
                     <has-error :form="form" field="password "></has-error>
                 </div>
@@ -43,7 +43,7 @@
                         v-model="form.password_confirmation"
                         class="form-control form-control-lg font-14 fw-300"
                         :class="{'is-invalid' : form.errors.has('password_confirmation')}"
-                        placeholder="Confirm New Password"
+                        placeholder="新しいパスワード(確認用)"
                     />
                 </div>
 

@@ -15,7 +15,7 @@
                     name="name"
                     class="form-control form-control-lg font-14 fw-300"
                     :class="{ 'is-invalid': form.errors.has('name') }"
-                    placeholder="Full Name"
+                    placeholder="名前"
                 />
                 <has-error :form="form" field="name"></has-error>
             </div>
@@ -26,7 +26,7 @@
                     name="username"
                     class="form-control form-control-lg font-14 fw-300"
                     :class="{ 'is-invalid': form.errors.has('username') }"
-                    placeholder="Username"
+                    placeholder="ユーザー名"
                 />
                 <has-error :form="form" field="username"></has-error>
             </div>
@@ -37,7 +37,7 @@
                     v-model.trim="form.email"
                     class="form-control form-control-lg font-14 fw-300"
                     :class="{ 'is-invalid': form.errors.has('email') }"
-                    placeholder="Email"
+                    placeholder="メールアドレス"
                 />
                 <has-error :form="form" field="email"></has-error>
             </div>
@@ -48,7 +48,7 @@
                     name="password"
                     class="form-control form-control-lg font-14 fw-300"
                     :class="{ 'is-invalid': form.errors.has('password') }"
-                    placeholder="Password"
+                    placeholder="パスワード"
                 />
                 <has-error :form="form" field="password"></has-error>
             </div>
@@ -59,7 +59,7 @@
                     name="password_confirmation"
                     class="form-control form-control-lg font-14 fw-300"
                     :class="{ 'is-invalid': form.errors.has('password_confirmation') }"
-                    placeholder="Confirm Password"
+                    placeholder="パスワード(確認用)"
                 />
                 <has-error :form="form" field="password_confirmation"></has-error>
             </div>

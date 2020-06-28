@@ -1,10 +1,10 @@
 <template>
-  <header class="fixed-topx">
+    <header class="fixed-topx">
             <nav class="navbar navbar-expand-lg navbar-dark align-items-center">
                 <nuxt-link
                     :to="{ name: 'index' }"
                     class="navbar-brand text-uppercase fw-500"
-                    >DesignHouse
+                    >ImageHouse
                     </nuxt-link>
                 <button
                     class="navbar-toggler mr-auto"
@@ -20,11 +20,11 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav font-14 fw-300">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#" title="Shots">Designs</a>
+                            <a class="nav-link" href="#" title="Shots">デザイン</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" title="Designers"
-                                > Designers </a
+                                > デザイナー </a
                             >
                         </li>
                     </ul>
@@ -36,7 +36,7 @@
                                     autocomplete="OFF"
                                     name="search"
                                     class="form-control text-white font-14 fw-300"
-                                    placeholder="Search and hit enter..."
+                                    placeholder="キーワードで検索"
                                 />
                                 <div class="search-icon text-white">
                                     <i class="fas fa-search"></i>
@@ -47,8 +47,8 @@
                     <div
                         class="upload-shot white-path font-14 fw-500 text-uppercase mr-auto"
                     >
-                        <a href="#" class="primary-bg-color text-white">
-                            <i class="fas fa-cloud-upload-alt"></i> Upload
+                        <a href="/upload" class="primary-bg-color text-white">
+                            <i class="fas fa-cloud-upload-alt"></i>アップロード
                         </a>
                     </div>
                 </div>
@@ -57,10 +57,10 @@
                 <template v-if="!$auth.loggedIn">
                 <ul class="before-login font-14 fw-300 text-uppercase">
                     <li>
-                        <nuxt-link :to="{ name: 'register' }">Sign Up</nuxt-link>
+                        <nuxt-link :to="{ name: 'register' }">サインアップ</nuxt-link>
                     </li>
                     <li>
-                        <nuxt-link :to="{ name: 'login' }">Login</nuxt-link>
+                        <nuxt-link :to="{ name: 'login' }">ログイン</nuxt-link>
                     </li>
                 </ul>
                 </template>
@@ -82,14 +82,14 @@
                         >
                             <img
                                 class="user-thumb"
-                                src="~assets/images/profile.png"
+                                :src="$auth.user.photo_url"
                             />
                             <div class="usr-info">
                                 <span class="user-name font-14 fw-500"
-                                    >John Doe</span
+                                    >{{ $auth.user.name }}</span
                                 >
                                 <span class="user-deg font-10 fw-300"
-                                    >Sr. UI Designer</span
+                                    >{{ $auth.user.tagline }}</span
                                 >
                                 <span class="down-chevron">
                                     <i class="fa fa-angle-down"></i>
@@ -102,25 +102,25 @@
                         >
                             <div class="dropdown-title-group font-12 fw-500">
                                 <span class="dropdown-title text-uppercase"
-                                    >Your Account</span
+                                    >{{ $auth.user.name }}</span
                                 >
                             </div>
-                            <a
-                                class="dropdown-item mt-28"
-                                href="#"
-                                title="Profile"
-                            >
+                            <nuxt-link to="/settings/dashboard" class="dropdown-item mt-28">
+                                <i class="fas fa-tachometer-alt"></i>
+                                ダッシュボード
+                            </nuxt-link>
+                            <a class="dropdown-item" href="#" title="Profile">
                                 <i class="fa fa-user"></i>
-                                Profile
+                                プロフィール
                             </a>
                             <a class="dropdown-item" href="#" title="Setting">
                                 <i class="fa fa-cogs"></i>
-                                Setting
+                                設定
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" @click.prevent="logout">
                                 <i class="fa fa-lock"></i>
-                                Sign Out
+                                ログアウト
                             </a>
                         </div>
                     </li>

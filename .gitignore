@@ -88,3 +88,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# gmaps
+plugins/gmaps.js
+components/_global/inputs/_base-gmap.vue
